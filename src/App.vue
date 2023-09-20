@@ -1,49 +1,23 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import WebHeader from './components/WebHeader.vue'
+import WebBody from './components/WebBody.vue'
+import ContentCenter from './components/ContentCenter.vue'
+
+import SearchCar from './components/SearchCar.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="Vue หลอก Javascript หลอน" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+	<main>
+		<WebHeader/>
+		<WebBody>
+			<img src="src/assets/home_cover.jpg" alt="Nissan" class="header-img"/>
+			<div class="searchcar-float">
+				<ContentCenter>
+					<h1 class="header-center">ไปเช่ารถ เพื่อออกเดินทางไกล</h1>
+					<h2 class="header-center">เดินทางไกล ?</h2>
+					<SearchCar/>
+				</ContentCenter>
+			</div>
+		</WebBody>
+	</main>
 </template>
-
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap');
-
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>

@@ -10,7 +10,7 @@ import SearchCar from './components/SearchCar.vue'
 	<main>
 		<WebHeader/>
 		<WebBody>
-			<img src="src/assets/home_cover.jpg" alt="Nissan" class="header-img"/>
+			<img src="/src/assets/home_cover.jpg" alt="Nissan" class="header-img"/>
 			<div class="searchcar-float">
 				<ContentCenter>
 					<h1 class="header-center">ไปเช่ารถ เพื่อออกเดินทางไกล</h1>

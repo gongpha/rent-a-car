@@ -5,7 +5,7 @@
 <template>
 	<header id="web-header">
 		<a class="header-logo" href="/">
-			<img src="logo.svg" width="32"/>
+			<img src="/logo.svg" width="32"/>
 			<span class="header-logo-text">RentACar</span>
 		</a>
 

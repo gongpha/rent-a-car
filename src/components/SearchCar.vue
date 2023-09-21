@@ -6,10 +6,8 @@ import Card from './Card.vue'
 import BranchPicker from './BranchPicker.vue'
 
 import VueDatePicker from '@vuepic/vue-datepicker';
-import { PartialTimeObj } from '@vuepic/vue-datepicker';
+import type { PartialTimeObj } from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
-
-import { ref } from 'vue'
 
 interface SearchInfo {
 	branchStartID: number

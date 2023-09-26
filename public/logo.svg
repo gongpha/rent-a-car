@@ -1,22 +1,128 @@
-<svg width="200" height="212" viewBox="0 0 200 212" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="100.5" cy="112.5" r="91.5" fill="#3B82C4"/>
-<path d="M190.5 136C174 199 135.5 193.5 89.5 201.5C17 198 21 161 2.98227 120C62.9823 130 61.5 55 147.5 100.5C169 93 196.26 114.008 190.5 136Z" fill="#60AB00"/>
-<path d="M192 139.5C178 159 164.699 206 104.5 206C44.301 206 10.5 164.815 10.5 143C10.5 121.185 42 124 104.5 121C167.5 125.559 195.5 117.5 192 139.5Z" fill="#316C3E"/>
-<path d="M182.5 71.5C159.21 90.1879 119.5 38 74.9906 75.7996C19.5 116 13.0179 79.7218 16.2618 65.7516C19.5056 51.7815 82.984 15.1095 105.42 20.319C129 13 185.744 57.5298 182.5 71.5Z" fill="#4B60CC"/>
-<path d="M104.5 204C200 200 88.0678 183.071 88.7209 157.496C89.4704 128.152 231.46 130.162 181.557 128.888C131.654 127.613 29.2115 138.466 28.249 176.156C28.194 178.31 66.5205 205.591 104.5 204Z" fill="#2E2E2E"/>
-<circle cx="100" cy="112" r="94.5" stroke="white" stroke-width="11"/>
-<circle cx="100" cy="112" r="94.5" stroke="white" stroke-opacity="0.2" stroke-width="11"/>
-<path d="M117.306 29.0347L105.744 113.324L90.5592 109.8L117.306 29.0347Z" fill="white"/>
-<path d="M89.926 113.474L104.479 116.982L94.0899 127.119L89.926 113.474Z" fill="white"/>
-<path d="M95 21H106L103.433 49H97.5667L95 21Z" fill="white"/>
-<path d="M9 118V107L37 109.567V115.433L9 118Z" fill="white"/>
-<path d="M192 107V118L164 115.433V109.567L192 107Z" fill="white"/>
-<path d="M160.342 43L168.175 50.7231L146.689 68.8593L142.511 64.7403L160.342 43Z" fill="white"/>
-<path d="M31 51.6915L38.7231 43.8586L56.8593 65.345L52.7403 69.5225L31 51.6915Z" fill="white"/>
-<path d="M59 31.2022L69.1657 27L77.4902 53.8569L72.0685 56.098L59 31.2022Z" fill="white"/>
-<path d="M17.2022 151.862L13 141.697L39.8569 133.372L42.098 138.794L17.2022 151.862Z" fill="white"/>
-<path d="M183.856 73.9137L188.058 84.0794L161.201 92.4039L158.96 86.9822L183.856 73.9137Z" fill="white"/>
-<path d="M130.151 26.8615L140.34 31.0065L127.411 55.9754L121.977 53.7647L130.151 26.8615Z" fill="white"/>
-<path d="M13.9384 84.3049L18.0834 74.1157L43.0522 87.0441L40.8416 92.4784L13.9384 84.3049Z" fill="white"/>
-<path d="M187.98 143.358L183.125 153.229L159.133 138.567L161.722 133.303L187.98 143.358Z" fill="white"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="200"
+   height="200"
+   viewBox="0 0 200 200"
+   fill="none"
+   version="1.1"
+   id="svg218"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:export-filename="logo.png"
+   inkscape:export-xdpi="57.599998"
+   inkscape:export-ydpi="57.599998"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs222" />
+  <sodipodi:namedview
+     id="namedview220"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="2.6883399"
+     inkscape:cx="6.8815702"
+     inkscape:cy="85.18268"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg218" />
+  <circle
+     cx="100"
+     cy="100.59674"
+     r="91.5"
+     fill="#3b82c4"
+     id="circle178" />
+  <path
+     d="m 190,124.09674 c -16.5,63 -55,57.5 -101,65.5 -72.5,-3.5 -68.5,-40.5 -86.51773,-81.5 C 62.4823,118.09674 61,43.096743 147,88.596743 c 21.5,-7.5 48.76,13.507997 43,35.499997 z"
+     fill="#60ab00"
+     id="path180" />
+  <path
+     d="m 191.5,127.59674 c -14,19.5 -27.301,66.5 -87.5,66.5 -60.199,0 -94,-41.185 -94,-63 0,-21.815 31.5,-19 94,-22 63,4.559 91,-3.5 87.5,18.5 z"
+     fill="#316c3e"
+     id="path182" />
+  <path
+     d="m 182,59.596743 c -23.29,18.6879 -63,-33.5 -107.5094,4.2996 C 19,104.09674 12.5179,67.818543 15.7618,53.848343 19.0056,39.878243 82.484,3.2062434 104.92,8.4157434 128.5,1.0967434 185.244,45.626543 182,59.596743 Z"
+     fill="#4b60cc"
+     id="path184" />
+  <path
+     d="m 104,192.09674 c 95.5,-4 -16.4322,-20.929 -15.7791,-46.504 0.7495,-29.344 142.7391,-27.334 92.8361,-28.608 -49.903,-1.275 -152.3455,9.578 -153.308,47.268 -0.055,2.154 38.2715,29.435 76.251,27.844 z"
+     fill="#2e2e2e"
+     id="path186" />
+  <circle
+     cx="99.5"
+     cy="100.09674"
+     r="94.5"
+     stroke="#ffffff"
+     stroke-width="11"
+     id="circle188" />
+  <circle
+     cx="99.5"
+     cy="100.09674"
+     r="94.5"
+     stroke="#ffffff"
+     stroke-opacity="0.2"
+     stroke-width="11"
+     id="circle190" />
+  <path
+     d="M 116.806,17.131443 105.244,101.42074 90.0592,97.896743 Z"
+     fill="#ffffff"
+     id="path192" />
+  <path
+     d="m 89.426,101.57074 14.553,3.508 -10.3891,10.137 z"
+     fill="#ffffff"
+     id="path194" />
+  <path
+     d="m 94.5,9.0967434 h 11 l -2.567,27.9999996 h -5.8663 z"
+     fill="#ffffff"
+     id="path196" />
+  <path
+     d="M 8.5,106.09674 V 95.096743 l 28,2.567 v 5.865997 z"
+     fill="#ffffff"
+     id="path198" />
+  <path
+     d="m 191.5,95.096743 v 10.999997 l -28,-2.567 v -5.865997 z"
+     fill="#ffffff"
+     id="path200" />
+  <path
+     d="m 159.842,31.096743 7.833,7.7231 -21.486,18.1362 -4.178,-4.119 z"
+     fill="#ffffff"
+     id="path202" />
+  <path
+     d="m 30.5,39.788243 7.7231,-7.8329 18.1362,21.4864 -4.119,4.1775 z"
+     fill="#ffffff"
+     id="path204" />
+  <path
+     d="m 58.5,19.298943 10.1657,-4.2022 8.3245,26.8569 -5.4217,2.2411 z"
+     fill="#ffffff"
+     id="path206" />
+  <path
+     d="m 16.7022,139.95874 -4.2022,-10.165 26.8569,-8.325 2.2411,5.422 z"
+     fill="#ffffff"
+     id="path208" />
+  <path
+     d="m 183.356,62.010443 4.202,10.1657 -26.857,8.3245 -2.241,-5.4217 z"
+     fill="#ffffff"
+     id="path210" />
+  <path
+     d="m 129.651,14.958243 10.189,4.145 -12.929,24.9689 -5.434,-2.2107 z"
+     fill="#ffffff"
+     id="path212" />
+  <path
+     d="m 13.4384,72.401643 4.145,-10.1892 24.9688,12.9284 -2.2106,5.4343 z"
+     fill="#ffffff"
+     id="path214" />
+  <path
+     d="m 187.48,131.45474 -4.855,9.871 -23.992,-14.662 2.589,-5.264 z"
+     fill="#ffffff"
+     id="path216" />
 </svg>

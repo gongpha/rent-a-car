@@ -4,9 +4,6 @@ import VueMultiselect from 'vue-multiselect'
 import axios from 'axios';
 import { apiURL } from '../envvars';
 
-// allow cross domain
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-
 export default defineComponent({
 	components: { VueMultiselect },
 	data() {

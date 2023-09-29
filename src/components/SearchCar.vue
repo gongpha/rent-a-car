@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue'
 import { reactive } from 'vue'
 
-import Card from './Card.vue'
+import CardContainer from './CardContainer.vue'
 import BranchPicker from './BranchPicker.vue'
 
 import VueDatePicker from '@vuepic/vue-datepicker';
@@ -18,7 +18,7 @@ interface SearchInfo {
 	endDate: Date
 }
 export default defineComponent({
-	components: { Card, BranchPicker, VueDatePicker },
+	components: { CardContainer, BranchPicker, VueDatePicker },
 	setup() {
 		const searchOption = reactive<SearchInfo>({} as SearchInfo);
 
@@ -35,7 +35,7 @@ export default defineComponent({
 </script>
 
 <template>
-	<Card>
+	<CardContainer>
 		<div class="searchcar-layout">
 			<div class="branch-picker">
 				<b>สถานที่รับรถ</b>
@@ -75,5 +75,5 @@ export default defineComponent({
 			>
 			จุดรับรถและส่งรถต่างกัน
 		</div>
-	</Card>
+	</CardContainer>
 </template>

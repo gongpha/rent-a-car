@@ -86,9 +86,16 @@ a {
 }
 
 .content-center {
-	max-width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.wide-limit {
+	max-width: 1000px;
+}
+
+.narrow-limit {
+	max-width: 500px;
 }
 
 .searchcar-layout {
@@ -188,4 +195,120 @@ a {
 
 .dp__action_buttons {
 	min-width: 128px !important;
+}
+
+.v-popper--theme-dropdown .v-popper__inner {
+	background-color: #20242b !important;
+	border: none !important;
+}
+
+.v-popper__arrow-container .v-popper__arrow-outer {
+	border-color: #20242b !important;
+}
+
+.v-popper__arrow-container .v-popper__arrow-inner {
+	background-color: #20242b !important;
+	border: none !important;
+}
+
+/**/
+
+button {
+	background-color: #395a8b;
+	border: none;
+	border-radius: 32px;
+	padding: 8px 32px;
+	color: #eee;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color .05s ease;
+
+	font-family: 'Prompt', sans-serif;
+}
+
+button.white {
+	background-color: #eee;
+	color: #111;
+}
+
+button.minicon {
+	display: flex;
+}
+
+button.minicon > span {
+	margin: auto;
+	margin-left: 16px;
+	width: 100%;
+}
+
+.pfp {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.pfp-big {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.login-panel {
+	max-width: 300px;
+	min-width: 300px;
+	padding: 16px;
+	text-align: center;
+	color: #eee;
+}
+
+.profilebutton-info {
+	min-width: 300px;
+}
+
+.profilebutton-info-header {
+	margin: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.profilebutton-info-header > * {
+	margin: auto;
+	color: #eee;
+}
+
+.profilebutton-info-header > h1 {
+	font-size: 24px;
+	margin-top: 10px;
+}
+
+.profilebutton-info >nav {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.profilebutton-info ul {
+	list-style-type: none;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.profilebutton-info li {
+	border-top: 1px solid #444b58;
+	padding: 4px;
+	padding-left: 16px;
+	transition: background-color .05s ease;
+}
+
+.profilebutton-info li:hover {
+	background-color: #313844;
+}
+
+.profilebutton-loginchoices {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 16px;
 }

@@ -1,30 +1,25 @@
-<script setup lang="ts">
-import WebHeader from './components/WebHeader.vue'
-import WebBody from './components/WebBody.vue'
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+import AppHome from './AppHome.vue';
+import AppAdmin from './AppAdmin.vue';
+
+export default defineComponent({
+	components: { AppHome, AppAdmin },
+	computed: {
+		admin() {
+			return this.$route.meta.admin
+		}
+	},
+});
 
 </script>
 
 <template>
-	<main>
-		<WebHeader/>
-		<WebBody>
-			<router-view v-slot="{ Component }">
-				<transition name="fade" mode="out-in">
-					<component :is="Component" />
-				</transition>
-			</router-view>
-		</WebBody>
+	<main v-if="admin">
+		<AppAdmin/>
+	</main>
+	<main v-else>
+		<AppHome/>
 	</main>
 </template>
-
-<style>
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
-}
-</style>

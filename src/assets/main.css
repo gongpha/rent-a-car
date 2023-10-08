@@ -4,9 +4,7 @@
 :root {
 	--accent: #395a8b;
 	--disabled-accent: #363c4e;
-
-	font-family: 'Prompt', sans-serif;
-	--dp-font-family: 'Prompt', sans-serif !important;
+	font-family: sans-serif;
 }
 
 .dp__theme_dark {
@@ -16,9 +14,24 @@
 	--dp-background-color: #282C34 !important;
 }
 
-body {
+body.appadmin {
+	margin : initial;
+	background-image: url(/adminbg.webp); /* https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fi-tried-frutigeraero-art-v0-h1grovcdjhda1.png%3Fwidth%3D1920%26format%3Dpng%26auto%3Dwebp%26s%3D0e4e9834d68a8fb26f5b027a17c7e30b7bfdd4ed */
+	background-size: cover;
+}
+
+body.adminpanel {
+	margin : initial;
+	background-image: url(/panelbg.jpg); /* https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2F13tg71b1qkda1.jpg */
+	background-size: cover;
+}
+
+body.apphome {
 	margin : 0; /* Remove default margin */
 	background-color: #282C34;
+
+	font-family: 'Prompt', sans-serif;
+	--dp-font-family: 'Prompt', sans-serif !important;
 }
 
 .header-center {
@@ -27,11 +40,15 @@ body {
 	margin: auto;
 }
 
-h1.header-center {
+body.apphome h1.header-center {
 	font-size: 3rem;
 }
 
-a {
+body.apphome > h1, h2, h3, h4, h5, h6 {
+	color: #97a5c0;
+}
+
+.admin-nav-a, a {
 	color: #eee;
 	text-decoration: none;
 }
@@ -88,6 +105,7 @@ a {
 .content-center {
 	margin-left: auto;
 	margin-right: auto;
+	display: grid;
 }
 
 .wide-limit {
@@ -213,7 +231,7 @@ a {
 
 /**/
 
-button {
+.button {
 	background-color: #395a8b;
 	border: none;
 	border-radius: 32px;
@@ -226,16 +244,16 @@ button {
 	font-family: 'Prompt', sans-serif;
 }
 
-button.white {
+.button.white {
 	background-color: #eee;
 	color: #111;
 }
 
-button.minicon {
+.button.minicon {
 	display: flex;
 }
 
-button.minicon > span {
+.button.minicon > span {
 	margin: auto;
 	margin-left: 16px;
 	width: 100%;
@@ -311,4 +329,11 @@ button.minicon > span {
 	flex-direction: column;
 	justify-content: center;
 	margin: 16px;
+}
+
+.card-img-thumb {
+	width: 500px;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 10px;
 }

@@ -16,6 +16,7 @@
     "axios": "^1.5.0",
     "floating-vue": "^2.0.0-beta.24",
     "vue": "^3.3.4",
+    "vue-cookies": "^1.8.3",
     "vue-multiselect": "^3.0.0-beta.2",
     "vue-router": "^4.2.5",
     "vue3-google-login": "^2.0.23"

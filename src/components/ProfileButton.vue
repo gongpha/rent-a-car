@@ -2,8 +2,9 @@
 import axios from 'axios';
 import LoginPanel from './LoginPanel.vue';
 import { apiURL } from '../envvars';
-import { onMounted } from 'vue';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+
+import { useRoute, useRouter } from 'vue-router';
 
 const props = defineProps({
 	requested: Boolean,
@@ -18,7 +19,14 @@ const name = ref(props.name);
 const pfp_url = ref(props.pfp_url);
 const requested = ref(props.requested);
 
-onMounted(() => {
+const router = useRouter();
+const route = useRoute();
+
+onMounted(async () => {
+	await router.isReady();
+
+	if (route.meta.admin) return;
+
 	axios.get(apiURL + '/profile/button', {
 		withCredentials: true,
 	}).then((response) => {
@@ -28,10 +36,8 @@ onMounted(() => {
 
 		requested.value = true;
 	}).catch((error) => {
-		if (error.response.status == 401) {
-			type.value = 'anonymous';
-			requested.value = true;
-		}
+		type.value = 'anonymous';
+		requested.value = true;
 	})
 })
 

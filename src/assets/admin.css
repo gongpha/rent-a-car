@@ -1,0 +1,116 @@
+/* imma make frutiger aero */
+
+.admin-login {
+	max-width: 300px;
+	min-width: 300px;
+	margin: auto;
+	margin-top: 200px;
+	padding: 16px;
+	text-align: center;
+
+	background-color: #eeeeeeee;
+	border-radius: 10px;
+}
+
+.admin-footer {
+	font-size: 14px;
+}
+
+.admin-login-error {
+	color: #ff0000;
+	font-size: 14px;
+}
+
+.admin-center {
+	width: 1200px;
+	margin: auto;
+}
+
+.admin-top {
+	background-color: white;
+	border-radius: 0px 0px 15px 15px;
+	padding-left: 16px;
+	padding-right: 16px;
+	box-shadow: 16px 16px 16px 0px rgba(0,0,0,0.2);
+	display: flex;
+
+	margin-bottom: 52px;
+}
+
+.admin-body {
+	background-color: white;
+	border-radius: 15px;
+	padding: 10px;
+	min-height: 150px;
+}
+
+.admin-top button {
+	background-color: rgb(37, 104, 192);
+	color: white;
+	border: none;
+	border-radius: 5px;
+
+	height: min-content;
+	margin-top: auto;
+	margin-bottom: auto;
+
+	cursor: pointer;
+}
+
+.admin-nav {
+	display: flex;
+	flex-direction: column;
+	background: #211685;
+	border-radius: 10px;
+	width: 150px;
+	float: left;
+}
+
+.admin-nav li {
+	list-style-type: none;
+}
+
+.admin-nav ul {
+	padding-left: 30px;
+}
+
+.admin-nav li:hover {
+	background: red;
+}
+
+.admin-content {
+	margin-left: 175px;
+}
+
+.admin-table {
+	width: 100%;
+}
+
+.admin-table th {
+	background-color: #211685;
+	color: white;
+}
+
+.admin-table tr:nth-child(2n) {
+	background-color: #eeeeee;
+}
+
+.admin-table-reserved {
+	color: red;
+	text-decoration: underline;
+}
+
+.admin-table-available {
+	color: green;
+	text-decoration: underline;
+}
+
+.admin-table-not-empty {
+	color: blue;
+	text-decoration: underline;
+}
+
+.admin-table-empty {
+	color: red;
+	text-decoration: underline;
+}

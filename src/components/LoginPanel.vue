@@ -69,7 +69,7 @@ export default defineComponent({
 			Login ด้วยคลิกเดียวผ่านบัญชี Google ของคุณ
 		</div>
 		<div class="profilebutton-loginchoices">
-			<button @click="login" class="white minicon">
+			<button @click="login" class="button white minicon">
 				<img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" width="32"/>
 				<span>Login ด้วย Google</span>
 			</button>

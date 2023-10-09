@@ -5,6 +5,7 @@ import './assets/admin.css'
 import { onBeforeMount } from 'vue';
 import WebHeader from './components/WebHeader.vue'
 import WebBody from './components/WebBody.vue'
+import WebFooter from './components/WebFooter.vue'
 
 onBeforeMount(() => {
 	document.body.className = 'apphome';
@@ -22,6 +23,7 @@ onBeforeMount(() => {
 				</transition>
 			</router-view>
 		</WebBody>
+		<WebFooter/>
 	</div>
 </template>
 

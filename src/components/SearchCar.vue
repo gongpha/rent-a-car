@@ -25,6 +25,13 @@ export default defineComponent({
 		}
 	},
 
+	props: {
+		mini: {
+			type: Boolean,
+			default: false,
+		}
+	},
+
 	setup() {
 		const today = new Date();
 		const lessThan30 = today.getMinutes() < 30;
@@ -104,8 +111,8 @@ export default defineComponent({
 </script>
 
 <template>
-	<CardContainer>
-		<div class="searchcar-layout">
+	<CardContainer v-bind:class="(mini)?'float-mini':'float'">
+		<div v-bind:class="(mini)?'searchcar-layout-mini flexcol-100':'searchcar-layout'">
 			<div class="branch-picker">
 				<b>สถานที่รับรถ</b>
 				<div ref="branchStart"><BranchPicker v-model="branchStartID"/></div>
@@ -115,14 +122,13 @@ export default defineComponent({
 				<div ref="branchEnd"><BranchPicker v-model="branchEndID"/></div>
 			</div>
 		</div>
-		<div class="searchcar-layout">
+		<div v-bind:class="(mini)?'searchcar-layout-mini flexcol-50':'searchcar-layout'">
 			<div class="branch-picker">
 				<b>วันรับส่งคืนรถ</b>
 				<div ref="branchDate">
 					<VueDatePicker
 					v-model="startEndDate" 
 					range
-					dark
 					minutes-increment="30"
 					minutes-grid-increment="30"
 					time-picker-inline
@@ -139,12 +145,15 @@ export default defineComponent({
 				</div>
 			</div>
 		</div>
-		<div style="display: flex;">
+		<div v-bind:class="(mini)?'searchcar-layout minitwo flexcol-75':'searchcar-layout'" style="display: flex;">
 			<input
 			type="checkbox"
 			v-model="diffPlace"
 			>
-			<span style="margin-right: auto; margin-top: auto; margin-bottom: auto;">
+			<span
+			
+				style="margin-right: auto; margin-top: auto; margin-bottom: auto;"
+			>
 				จุดรับรถและส่งรถต่างกัน
 			</span>
 			<button @click="search" class="button">ค้นหา</button>

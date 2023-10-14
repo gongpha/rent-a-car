@@ -1,10 +1,12 @@
 <script lang="ts">
 
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
 import { googleAuthCodeLogin } from 'vue3-google-login'
 import axios from 'axios';
 import { apiURL } from '../envvars';
+import type { VueCookies } from 'vue-cookies';
 
+const $cookies = inject<VueCookies>('$cookies')
 
 export default defineComponent({
 	components: { },
@@ -27,6 +29,7 @@ export default defineComponent({
 						console.error("Error logging in bro")
 						return
 					}
+					$cookies!.set('csrf_access_token', response.data.token) // damn
 					document.location.href="/";
 				})
 			})

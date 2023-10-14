@@ -35,6 +35,7 @@ const models = ref<{
 		price_per_day: 0,
 		fuel_type: '',
 		car_type: '',
+		gear: '',
 
 		count: 0,
 	}

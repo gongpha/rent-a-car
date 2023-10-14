@@ -2,7 +2,7 @@
 import CardContainer from '@/components/CardContainer.vue';
 import ContentCenter from '../components/ContentCenter.vue'
 import { useRouter, useRoute } from 'vue-router';
-import { onMounted, ref, type Ref } from 'vue';
+import { inject, onMounted, ref, type Ref } from 'vue';
 import axios from 'axios';
 import { apiURL } from '@/envvars';
 import { getFuel, getGear, getThaiDate, getInsuranceProperty } from '@/utils/texts';
@@ -11,6 +11,7 @@ import { popup } from '@/utils/texts';
 import { type Branch } from './admin/AdminCars.vue'
 import { type Car } from './PageSearch.vue'
 import { type Insurance } from './PageAddons.vue'
+import type { VueCookies } from 'vue-cookies';
 
 const route = useRoute()
 const router = useRouter()
@@ -140,7 +141,7 @@ onMounted(() => {
 		}
 	});
 })
-
+const $cookies = inject<VueCookies>('$cookies')
 function submit() {
 	if (!cust.value.firstName) {
 		popup(firstNameField.value!, "กรุณากรอกชื่อ")
@@ -183,7 +184,12 @@ function submit() {
 		lastName: cust.value.lastName,
 		email: cust.value.email,
 		phone: cust.value.phone,
-	}, { withCredentials: true }).then((res) => {
+	}, {
+		withCredentials: true,
+		headers: {
+			'X-CSRF-TOKEN': $cookies?.get('csrf_access_token'),
+		},
+	}).then((res) => {
 		reservationID.value = res.data.reservation_id
 		resultHeader.value = 'จองสำเร็จ'
 		completed.value = true

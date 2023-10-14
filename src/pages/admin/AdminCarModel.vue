@@ -16,6 +16,7 @@ export interface Model {
 	car_type: string,
 	price_per_day: number,
 	fuel_type: string,
+	gear: string,
 
 	count: number,
 }
@@ -29,6 +30,7 @@ const model = ref<Model>({
 	car_type: '',
 	price_per_day: 0,
 	fuel_type: '',
+	gear: '',
 
 	count: 0,
 })
@@ -46,7 +48,7 @@ function save() {
 		return
 	}
 
-	if (!model.value.car_type || !model.value.fuel_type) {
+	if (!model.value.car_type || !model.value.fuel_type || !model.value.gear) {
 		alert('กรุณากรอกข้อมูลให้ครบถ้วน')
 		return
 	}
@@ -60,6 +62,7 @@ function save() {
 			price_per_day: model.value.price_per_day,
 			fuel_type: model.value.fuel_type,
 			car_type: model.value.car_type,
+			gear: model.value.gear
 		}, {
 			withCredentials: true,
 			headers: {
@@ -79,6 +82,7 @@ function save() {
 			price_per_day: model.value.price_per_day,
 			fuel_type: model.value.fuel_type,
 			car_type: model.value.car_type,
+			gear: model.value.gear
 		}, {
 			withCredentials: true,
 			headers: {
@@ -182,6 +186,15 @@ function deleteModel() {
 						<option value="Eco">Eco</option>
 						<option value="Mid">Mid</option>
 						<option value="SUV">SUV</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>ระบบเกียร์</td>
+				<td>
+					<select :disabled="!permissions.includes('U') && !newPage" v-model="model.gear">
+						<option value="manual">แมนนวล</option>
+						<option value="auto">ออโต้</option>
 					</select>
 				</td>
 			</tr>

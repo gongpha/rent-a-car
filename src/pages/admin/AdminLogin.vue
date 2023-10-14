@@ -2,14 +2,17 @@
 
 import axios from 'axios';
 import { apiURL } from '../../envvars';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, inject } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
+import type { VueCookies } from 'vue-cookies';
 
 const username = ref<string>("")
 const password = ref<string>("")
 const errorText = ref<string>("")
 
 const router = useRouter();
+
+const $cookies = inject<VueCookies>('$cookies')
 
 function login() {
 	axios.post(apiURL + '/admin/login', {
@@ -18,6 +21,7 @@ function login() {
 	}, {
 		withCredentials: true
 	}).then((response) => {
+		$cookies!.set('csrf_access_token', response.data.token) // damn
 		document.location.href = '/adminpanel';
 	}).catch((error) => {
 		errorText.value = error.response.data.error

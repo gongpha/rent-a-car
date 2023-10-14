@@ -6,6 +6,10 @@ import VueCookies from 'vue-cookies'
 
 import Home from './pages/PageHome.vue'
 import Search from './pages/PageSearch.vue'
+import Addons from './pages/PageAddons.vue'
+import Review from './pages/PageReview.vue'
+import Reservation from './pages/PageReservation.vue'
+import Reservations from './pages/PageReservations.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import AdminMain from './pages/admin/AdminMain.vue'
@@ -28,8 +32,12 @@ const app = createApp(App)
 const routes = [
 	{ path: '/', component: Home, meta: { transition: 'slide-left' } },
 	{ path: '/search', component: Search },
-	{ path: '/admin', component: AdminLogin, meta: { admin: true } },
+	{ path: '/addons', component: Addons },
+	{ path: '/review', component: Review },
+	{ path: '/reservation/:rsvId', component: Reservation },
+	{ path: '/reservations', component: Reservations },
 	
+	{ path: '/admin', component: AdminLogin, meta: { admin: true } },
 	{ path: '/adminpanel', component: AdminDashboard, meta: { admin: true } },
 	{ path: '/adminpanel/cars', component: AdminCars, meta: { admin: true } },
 	{ path: '/adminpanel/models', component: AdminCarModels, meta: { admin: true } },

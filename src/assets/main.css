@@ -56,12 +56,22 @@ h1, h2, h3, h4, h5 {
 
 h3, h4, h5 {
 	font-weight: 600;
-	color: #aaa;
+	color: #444;
 }
 
-.admin-nav-a, a {
+a {
 	color: #222;
 	text-decoration: none;
+}
+
+.admin-nav-a {
+	color: white;
+	text-decoration: none;
+}
+
+.a-link {
+	color: var(--accent);
+	text-decoration: underline;
 }
 
 #web-header {
@@ -77,6 +87,8 @@ h3, h4, h5 {
 #web-footer {
 	padding: 16px 32px;
 	display: flex;
+
+	margin-top: 30px;
 
 	z-index: 256;
 	color:#fff;
@@ -132,6 +144,11 @@ h3, h4, h5 {
 	padding: 20px;
 
 	color: #1b1b1b;
+}
+
+.card-minimal {
+	padding: 10px;
+	margin-bottom: 20px;
 }
 
 .float {
@@ -226,6 +243,10 @@ h3, h4, h5 {
 	min-width: 128px !important;
 }
 
+.multiselect__tag {
+	background: var(--accent) !important;
+}
+
 
 /**/
 
@@ -246,6 +267,10 @@ h3, h4, h5 {
 .button.white {
 	background-color: #eee;
 	color: #111;
+}
+
+.button.negative {
+	background-color: #ff0080;
 }
 
 .button.minicon {
@@ -342,6 +367,20 @@ h3, h4, h5 {
 	border-radius: 10px;
 }
 
+.card-img-thumb-small {
+	width: 150px;
+	height: 125px;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+.card-img-thumb-tiny {
+	width: 100px;
+	height: 75px;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
 .cardside {
 	display: flex;
 	margin-bottom: 20px;
@@ -352,6 +391,13 @@ h3, h4, h5 {
 	display: flex;
 	flex-direction: column;
 	min-width: 400px;
+}
+
+.cardside-content-wide {
+	margin-left: 16px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 
 .cardside-content-big {
@@ -366,6 +412,11 @@ h3, h4, h5 {
 .small-desc {
 	font-size: 12px;
 	color: #888;
+}
+
+.mid-desc {
+	font-size: 16px;
+	color: #555;
 }
 
 .footer-col {
@@ -397,20 +448,29 @@ h3, h4, h5 {
 .tc-left {
 	margin-right: 32px;
 	width: 25%;
-	max-height: 300px;
+	max-height: 400px;
+}
+
+.tc-left > * {
+	margin-bottom: 16px;
 }
 
 .tc-right {
 	width: 100%;
 }
 
+.price-text {
+	font-size: 24px;
+	font-weight: 600;
+}
+
 .price-prefix {
 	color: #888;
-	margin-right: 6px;
 }
 
 .price-number {
 	color: var(--accent);
+	margin-left: 6px;
 }
 
 .cardside-content-info {
@@ -419,4 +479,188 @@ h3, h4, h5 {
 
 .force-black {
 	color: #000 !important;
+}
+
+.car-property {
+	display: flex;
+	gap: 16px;
+	width: 100%;
+}
+
+.car-property-iconframe {
+	background-color: #eee;
+	border-radius: 100%;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #444;
+
+	margin-bottom: 10px;
+}
+
+.car-property-iconframe-wide {
+	background-color: #eee;
+	border-radius: 50px;
+	width: 64px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #444;
+
+	margin-bottom: 10px;
+}
+
+.car-property-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.insurance-card-body {
+	display: flex;
+	flex-direction: column;
+}
+
+.summary-content {
+	display: flex;
+	width: 100%;
+}
+
+.summary-content-left {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+}
+
+.summary-content-right {
+	display: flex;
+	flex-direction: column;
+	border-left: 1px solid #ccc;
+	padding-left: 32px;
+	width: 100%;
+}
+
+.summary-content-right > hr {
+	border: 1px solid #ccc;
+	width: 100%;
+}
+
+.cost-item {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 10px;
+	justify-content: space-between;
+}
+
+.cost-amount {
+	text-align: right;
+}
+
+.form-card-body {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.form-label {
+	width: 200px;
+	display: inline-block;
+}
+
+.form-input-text {
+	margin-bottom: 10px;
+}
+
+.form-input-text > input {
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	height: 30px;
+	font-family: 'Prompt', sans-serif;
+	width: 600px;
+}
+
+.form-input-text > input:hover {
+	border: 1px solid var(--accent);
+}
+
+.resv-head {
+	display: flex;
+	justify-content: space-between;
+}
+
+/**/
+
+[class^="icon"] {
+	font-family: 'Material Symbols Outlined';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	-moz-font-feature-settings: 'liga';
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-feature-settings: 'liga';
+}
+
+.icon-car::before {
+	content: "\e531";
+}
+
+.icon-seat::before {
+	content: "\efee";
+}
+
+.icon-fuel::before {
+	content: "\e546";
+}
+
+.icon-gear::before {
+	content: "\f53f";
+}
+
+.icon-down::before {
+	content: "\e5c5";
+}
+
+.icon-up::before {
+	content: "\e5c7";
+}
+
+.icon-insurance::before {
+	content: "\e8e8";
+}
+
+.icon-price::before {
+	content: "\e263";
+}
+
+.icon-pessengers::before {
+	content: "\e636";
+}
+
+.icon-pricecheck::before {
+	content: "\f04b";
+}
+
+.icon-timelapsed::before {
+	content: "\e422";
+}
+
+.icon-driver::before {
+	content: "\f8e6";
+}
+
+.icon-true::before {
+	content: "\e86c";
+}
+
+.icon-false::before {
+	content: "\e5c9";
 }

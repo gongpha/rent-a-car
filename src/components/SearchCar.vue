@@ -11,6 +11,8 @@ import '@vuepic/vue-datepicker/dist/main.css'
 
 import { createTooltip, destroyTooltip } from 'floating-vue'
 
+import { apiURL } from '@/envvars'
+import axios from 'axios'
 
 export default defineComponent({
 	components: { CardContainer, BranchPicker, VueDatePicker },
@@ -21,15 +23,42 @@ export default defineComponent({
 			diffPlace: false,
 			branchEndID: { id: undefined },
 
-			startEndDate: [],
+			startEndDate: ([] as Date[]),
+
+			options: ([] as any[]),
 		}
 	},
+
+	emits: ['search'],
 
 	props: {
 		mini: {
 			type: Boolean,
 			default: false,
-		}
+		},
+
+		useEmit: {
+			type: Boolean,
+			default: false,
+		},
+
+		startBranchStartID: {
+			default: 0,
+		},
+
+		startBranchEndID: {
+			default: 0,
+		},
+
+		startDate: {
+			default: undefined,
+			type: Date,
+		},
+
+		endDate: {
+			default: undefined,
+			type: Date,
+		},
 	},
 
 	setup() {
@@ -48,9 +77,37 @@ export default defineComponent({
 		}
 	},
 
+	mounted() {
+		this.getBranches()
+	},
+
 	methods: {
+		getBranches() {
+			axios.get(apiURL + '/branches')
+				.then(response => {
+					let newOptions : any[] = [];
+					response.data.branches.forEach((branch: any) => {
+						newOptions.push({
+							id: branch.branch_id,
+							name: branch.branch_name,
+						});
+					});
+					this.options = newOptions;
+
+					this.branchStartID = this.options.find((option) => option.id == this.startBranchStartID);
+					this.branchEndID = this.options.find((option) => option.id == this.startBranchEndID);
+					if (!(this.endDate == undefined || this.startDate == undefined)) {
+						this.startEndDate = [this.endDate, this.startDate]
+					}
+					
+					this.diffPlace = this.branchStartID != this.branchEndID
+				})
+				.catch(error => {
+					console.log(error);
+				})
+		},
 		search() {
-			if (this.branchStartID.id == undefined) {
+			if (this.branchStartID == undefined) {
 				const tooltip = createTooltip(this.branchStart, {
 					content: 'กรุณาเลือกสถานที่รับรถ',
 				}, {})
@@ -65,7 +122,7 @@ export default defineComponent({
 				}, 3000)
 				return
 			}
-			if (this.diffPlace && this.branchEndID.id == undefined) {
+			if (this.diffPlace && this.branchEndID == undefined) {
 				const tooltip = createTooltip(this.branchEnd, {
 					content: 'กรุณาเลือกสถานที่ส่งคืนรถ',
 				}, {})
@@ -94,16 +151,22 @@ export default defineComponent({
 				}, 3000)
 				return
 			}
-			
+
 			let arr : Date[] = this.startEndDate
+			const query = {
+				branchStartID: this.branchStartID.id,
+				branchEndID: this.diffPlace ? this.branchEndID.id : this.branchStartID.id,
+				startDate: (arr[0] instanceof Date) ? arr[0].toISOString() : arr[0],
+				endDate: (arr[1] instanceof Date) ? arr[1].toISOString() : arr[1]
+			}
+
+			if (this.useEmit) {
+				this.$emit('search', query)
+				return
+			}
 			this.$router.push({
 				path: '/search',
-				query: {
-					branchStartID: this.branchStartID.id,
-					branchEndID: this.diffPlace ? this.branchEndID.id : this.branchStartID.id,
-					startDate: arr[0].toISOString(),
-					endDate: arr[1].toISOString()
-				}
+				query: query
 			})
 		},
 	}
@@ -115,11 +178,11 @@ export default defineComponent({
 		<div v-bind:class="(mini)?'searchcar-layout-mini flexcol-100':'searchcar-layout'">
 			<div class="branch-picker">
 				<b>สถานที่รับรถ</b>
-				<div ref="branchStart"><BranchPicker v-model="branchStartID"/></div>
+				<div ref="branchStart"><BranchPicker :options="options" v-model="branchStartID"/></div>
 			</div>
 			<div v-if="diffPlace" class="branch-picker">
 				<b>สถานที่ส่งรถ</b>
-				<div ref="branchEnd"><BranchPicker v-model="branchEndID"/></div>
+				<div ref="branchEnd"><BranchPicker :options="options" v-model="branchEndID"/></div>
 			</div>
 		</div>
 		<div v-bind:class="(mini)?'searchcar-layout-mini flexcol-50':'searchcar-layout'">
@@ -146,16 +209,13 @@ export default defineComponent({
 			</div>
 		</div>
 		<div v-bind:class="(mini)?'searchcar-layout minitwo flexcol-75':'searchcar-layout'" style="display: flex;">
-			<input
-			type="checkbox"
-			v-model="diffPlace"
-			>
-			<span
-			
-				style="margin-right: auto; margin-top: auto; margin-bottom: auto;"
-			>
+			<label style="margin-right: auto; margin-top: auto; margin-bottom: auto;">
+				<input
+				type="checkbox"
+				v-model="diffPlace"
+				>
 				จุดรับรถและส่งรถต่างกัน
-			</span>
+			</label>
 			<button @click="search" class="button">ค้นหา</button>
 		</div>
 	</CardContainer>

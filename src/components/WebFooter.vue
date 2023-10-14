@@ -10,7 +10,7 @@ import ContentCenter from '../components/ContentCenter.vue';
 		<ContentCenter class="wide-limit footer-content">
 			<div class="footer-col">
 				<div class="header-logo header-logo-white">
-					<img src="/logo.svg" width="32"/>
+					<img src="/logo_white.svg" width="32"/>
 					<span class="header-logo-text">RentACar</span>
 				</div>
 				<div class="small-desc">

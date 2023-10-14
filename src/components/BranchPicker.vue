@@ -1,41 +1,5 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import VueMultiselect from 'vue-multiselect'
-import axios from 'axios';
-import { apiURL } from '../envvars';
-
-export default defineComponent({
-	components: { VueMultiselect },
-	data() {
-		return {
-			options: ([] as any[]),
-			selected: '',
-		};
-	},
-
-	created() {
-		this.getBranches();
-	},
-
-	methods: {
-		getBranches() {
-			axios.get(apiURL + '/branches')
-				.then(response => {
-					let options : any[] = [];
-					response.data.branches.forEach((branch: any) => {
-						options.push({
-							id: branch.branch_id,
-							name: branch.branch_name,
-						});
-					});
-					this.options = options;
-				})
-				.catch(error => {
-					console.log(error);
-				})
-		}
-	}
-})
 
 </script>
 
@@ -43,8 +7,6 @@ export default defineComponent({
 
 <template>
 	<VueMultiselect
-		:options="options"
-		v-model="selected"
 		label="name"
 		placeholder="เลือกสถานที่"
 		:show-labels="false"

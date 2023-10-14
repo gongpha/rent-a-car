@@ -57,8 +57,8 @@ export default defineComponent({
 		</div>
 		<nav class="menu">
 		<ul>
-			<a href="#"><li>การจองของฉัน</li></a>
-			<a href="#"><li>โปรไฟล์ของฉัน</li></a>
+			<router-link to="/reservations"><li>การจองของฉัน</li></router-link>
+			<!--a href="#"><li>โปรไฟล์ของฉัน</li></a-->
 			<a href="#" @click="logout"><li>ออกจากระบบ</li></a>
 		</ul>
 		</nav>

@@ -3,6 +3,42 @@ import CardContainer from '@/components/CardContainer.vue';
 import ContentCenter from '../components/ContentCenter.vue';
 
 import SearchCar from '../components/SearchCar.vue'
+import { ref } from 'vue';
+
+const email = ref('');
+const resvID = ref('');
+
+const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+import { popup } from '@/utils/texts';
+import { useRouter } from 'vue-router';
+
+const resvIDField = ref<HTMLElement | null>(null)
+const emailField = ref<HTMLElement | null>(null)
+
+const router = useRouter()
+
+function submit() {
+	if (!resvID.value) {
+		popup(resvIDField.value!, "กรุณากรอกหมายเลขการจอง")
+		return
+	}
+	if (!emailField.value) {
+		popup(emailField.value!, "กรุณากรอกอีเมล")
+		return
+	}
+	if (!emailCheck.test(email.value)) {
+		popup(emailField.value!, "กรุณากรอกอีเมลให้ถูกต้อง")
+		return
+	}
+
+	router.push({
+		path: '/reservation/' + resvID.value,
+		query: {
+			email: email.value,
+		}
+	})
+}
+
 </script>
 
 <template>
@@ -57,6 +93,22 @@ import SearchCar from '../components/SearchCar.vue'
 								ไปทำความดี ไปทำความดี ไปทำความดี ไปทำความดี ไปทำความดี 
 								ไปทำความดี ไปทำความดี ไปทำความดี ไปทำความดี ไปทำความดี 
 							</p>
+						</div>
+					</CardContainer>
+					<CardContainer>
+						<h1>ตรวจสอบการจอง</h1>
+						<div class="form-card-body">
+							<div class="form-input-text">
+								<span class="form-label">หมายเลขการจอง</span>
+								<input type="text" v-model="resvID" ref="resvIDField" />
+							</div>
+							<div class="form-input-text">
+								<span class="form-label">อีเมลที่ใช้ทำการจอง</span>
+								<input type="text" v-model="email" ref="emailField" />
+							</div>
+							<button class="button" @click="submit">
+								ตรวจสอบ
+							</button>
 						</div>
 					</CardContainer>
 				</div>

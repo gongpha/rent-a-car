@@ -137,7 +137,7 @@ function markCompleted() {
 					<span v-if="rsv.status == 'CANCELED'">การจองถูกยกเลิก</span>
 				</td>
 			</tr>
-			<tr v-if="rsv.note.length !== 0">
+			<tr v-if="(rsv.note == null) ? false : (rsv.note.length !== 0)">
 				<td>หมายเหตุ</td>
 				<td>{{ rsv.note }}</td>
 			</tr>

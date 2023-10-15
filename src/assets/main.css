@@ -590,6 +590,14 @@ a {
 	justify-content: space-between;
 }
 
+.graph2 {
+	display: flex;
+}
+
+.graph2e {
+	width: 500px;
+}
+
 /**/
 
 [class^="icon"] {

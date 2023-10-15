@@ -5,6 +5,12 @@ import { apiURL } from '../../envvars';
 import { ref, onMounted, computed } from 'vue';
 import { type Branch } from './AdminCars.vue'
 
+import { Bar } from 'vue-chartjs'
+
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+
 export interface Reservation {
 	id : number;
 	c_first_name : string;
@@ -59,6 +65,7 @@ onMounted(() => {
 	}).catch((error) => {
 		console.error(error)
 	})
+	stats()
 });
 
 const filteredReservations = computed(() => {
@@ -87,11 +94,62 @@ const onBranchChange = (event: Event) => {
 	})
 }
 
+const monthly = ref<any>({
+	labels: [],
+	datasets: []
+})
+const weekly = ref<any>({
+	labels: [],
+	datasets: []
+})
+
+function stats() {
+	axios.get(apiURL + '/stats/monthly', {
+		withCredentials: true
+	}).then((response) => {
+		monthly.value = {
+			labels: response.data.labels,
+			datasets: [ { data: response.data.data } ]
+		}
+	}).catch((error) => {
+		console.error(error)
+	})
+	axios.get(apiURL + '/stats/weekly', {
+		withCredentials: true
+	}).then((response) => {
+		weekly.value = {
+			labels: response.data.labels,
+			datasets: [ { data: response.data.data } ]
+		}
+	}).catch((error) => {
+		console.error(error)
+	})
+}
+
 </script>
 
 <template>
 	<AdminNav/>
 	<div class="admin-content">
+		<h1>ยอดการจอง</h1>
+		<div class="graph2">
+			<div class="graph2e">
+				<h2>ยอดจองต่อเดือน</h2>
+				<Bar
+					id="my-chart-id"
+					:width="50" :height="50"
+							:data="monthly"
+				/>
+			</div>
+			<div class="graph2e">
+				<h2>ยอดจองต่อสัปดาห์</h2>
+				<Bar
+					id="my-chart-id"
+					:width="50" :height="50"
+							:data="weekly"
+				/>
+			</div>
+		</div>
 		<h1>การจองที่จะมีวันนี้</h1>
 		<table class="admin-table" cellpadding="0" cellspacing="0">
 			<tr v-if="isRoot">

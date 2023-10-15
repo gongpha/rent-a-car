@@ -46,7 +46,8 @@ onMounted(() => {
 	axios.get(apiURL + '/admin/reservations/0/today', {
 		withCredentials: true
 	}).then((response) => {
-		if (!response.data) {
+		
+		if (response.data.root) {
 			// root
 			isRoot.value = true
 			

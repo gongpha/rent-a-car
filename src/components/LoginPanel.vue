@@ -6,13 +6,18 @@ import axios from 'axios';
 import { apiURL } from '../envvars';
 import type { VueCookies } from 'vue-cookies';
 
-const $cookies = inject<VueCookies>('$cookies')
-
 export default defineComponent({
 	components: { },
 	props: {
 		url: String,
 		displayname: String,
+	},
+
+	setup() {
+		const $cookies = inject<VueCookies>('$cookies')
+		return {
+			$cookies
+		}
 	},
 	
 	methods: {
@@ -29,7 +34,7 @@ export default defineComponent({
 						console.error("Error logging in bro")
 						return
 					}
-					$cookies!.set('csrf_access_token', response.data.token) // damn
+					this.$cookies!.set('csrf_access_token', response.data.token) // damn
 					document.location.href="/";
 				})
 			})

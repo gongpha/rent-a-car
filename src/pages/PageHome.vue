@@ -71,7 +71,7 @@ function submit() {
 						</div>
 					</CardContainer>
 					<CardContainer class="cardside">
-						<img src="/src/assets/driver.png" alt="Nissan" class="card-img-thumb"/>
+						<img src="/src/assets/driver.jpg" alt="Nissan" class="card-img-thumb"/>
 						<div class="cardside-content-big">
 							<h1>มีคนขับรถไปถึงที่ต้องการแทนคุณ</h1>
 							<p>

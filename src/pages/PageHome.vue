@@ -49,8 +49,8 @@ function submit() {
 		<div class="searchcar-float">
 			<ContentCenter class="wide-limit">
 				<div>
-					<h1 class="header-center">ไปเช่ารถ เพื่อออกเดินทางไกล</h1>
-					<h2 class="header-center">เดินทางไกล ?</h2>
+					<h1 class="header-center">เช่ารถราคาถูกทั่วประเทศ</h1>
+					<h2 class="header-center">ค้นหาประเทศไทยในรูปแบบใหม่</h2>
 				</div>
 				<SearchCar/>
 			</ContentCenter>

@@ -3,6 +3,7 @@ import App from './App.vue'
 import AdminLogin from './pages/admin/AdminLogin.vue'
 import vue3GoogleLogin from 'vue3-google-login'
 import VueCookies from 'vue-cookies'
+import LoadingPlugin from 'vue-loading-overlay'
 
 import Home from './pages/PageHome.vue'
 import Search from './pages/PageSearch.vue'
@@ -60,5 +61,6 @@ app.use(vue3GoogleLogin, {
 app.use(router)
 app.use(FloatingVue)
 app.use(VueCookies)
+app.use(LoadingPlugin)
 
 app.mount('#app')

@@ -11,6 +11,14 @@ export default defineComponent({
 	props: {
 		url: String,
 		displayname: String,
+		desc: {
+			type: String,
+			default: "Login ด้วยคลิกเดียวผ่านบัญชี Google ของคุณ"
+		},
+		dontgohome: {
+			type: Boolean,
+			default: false
+		}
 	},
 
 	setup() {
@@ -35,7 +43,12 @@ export default defineComponent({
 						return
 					}
 					this.$cookies!.set('csrf_access_token', response.data.token) // damn
-					document.location.href="/";
+					if (this.dontgohome) {
+						location.reload()
+					} else {
+						document.location.href="/";
+					}
+					
 				})
 			})
 		},
@@ -74,7 +87,7 @@ export default defineComponent({
 	</div>
 	<div v-else>
 		<div class="login-panel">
-			Login ด้วยคลิกเดียวผ่านบัญชี Google ของคุณ
+			{{ desc }}
 		</div>
 		<div class="profilebutton-loginchoices">
 			<button @click="login" class="button white minicon">

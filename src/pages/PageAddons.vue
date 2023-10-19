@@ -67,8 +67,6 @@ const endDate = ref(new Date());
 const insurances = ref<Insurance[]>([])
 const selectedInsurance = ref<Insurance|null>(null)
 
-const hireDriver = ref<boolean>(false)
-
 function review() {
 	const query = {
 		branchStartID: route.query.branchStartID,
@@ -79,7 +77,6 @@ function review() {
 		carId: route.query.carId,
 
 		insuranceId: selectedInsurance.value?.insurance_id,
-		hireDriver: hireDriver.value? 1 : 0,
 	}
 
 	router.push({
@@ -128,14 +125,6 @@ function addInsu(insurance: Insurance) {
 
 function removeInsu(insurance_: Insurance) {
 	selectedInsurance.value = null
-}
-
-function addDriver() {
-	hireDriver.value = true
-}
-
-function removeDriver() {
-	hireDriver.value = false
 }
 
 </script>
@@ -189,11 +178,6 @@ function removeDriver() {
 						</div>
 					</div>
 					<div class="car-property-row">
-						<div v-if="hireDriver" class="car-property">
-							<div class="car-property-iconframe">
-								<i class="icon-driver car-property-icon"/>
-							</div>เช่าพร้อมคนขับ
-						</div>
 						<div v-if="selectedInsurance" class="car-property">
 							<div class="car-property-iconframe" v-tooltip="'ประกันภัย'">
 								<i class="icon-insurance car-property-icon"/>
@@ -216,60 +200,11 @@ function removeDriver() {
 					fuckoff
 				</CardContainer-->
 				<div class="tc-right car-list">
-					<h1>คนขับ</h1>
-					<CardContainer class="car-card cardside">
-						<div class="insurance-card-body">
-							<div style="display: flex;">
-								<div>
-									<p>
-										สะดวกสบาย ไม่ต้องเสียเวลาเรียกหรือโบกรถหลายรอบ ด้วยรถยนต์พร้อมคนขับ
-										ที่พร้อมให้บริการคุณตลอดการเดินทางตามระยะเวลาที่คุณต้องการ - แวะกี่ที่ก็ได้ ไม่มีจำกัด
-									</p>
-									<div class="cardside-content-info">
-										<div class="car-property-row">
-											<div class="car-property">
-												<div class="car-property-iconframe">
-													<i class="icon-car car-property-icon"/>
-												</div>
-												มั่นใจในความคุ้มค่า ไปกี่ที่ก็ได้
-											</div>
-											<div class="car-property">
-												<div class="car-property-iconframe">
-													<i class="icon-timelapsed car-property-icon"/>
-												</div>
-												ตอบทุกการใช้งานด้วยแพ็คเกจเวลา
-											</div>
-										</div>
-										<div class="car-property-row">
-											<div class="car-property">
-												<div class="car-property-iconframe">
-													<i class="icon-pessengers car-property-icon"/>
-												</div>
-												ไม่ต้องขับเอง ไม่ต้องเหนื่อย
-											</div>
-											<div class="car-property">
-												<div class="car-property-iconframe">
-													<i class="icon-pricecheck car-property-icon"/>
-												</div>
-												ให้บริการด้วยราคามาตรฐาน
-											</div>
-										</div>
-									</div>
-								</div>
-								<img src="https://cdn.discordapp.com/attachments/359611399774797824/1162440844834525184/driver.png?ex=653bf266&is=65297d66&hm=2a8d7a4a5af98805147fcb476938690351690b1523913e49663949e1033f7204&"
-								
-								/>
-							</div>
-							<button v-if="!hireDriver" class="button" @click="addDriver()">เลือก</button>
-							<button v-else class="button negative" @click="removeDriver()">เลิกเลือก</button>
-						</div>
-					</CardContainer>
 					<h1>ประกันภัย</h1>
 					<CardContainer class="car-card cardside" v-for="insurance in insurances" v-bind:key="insurance.insurance_id">
 						<div class="insurance-card-body">
 							<h3>{{ insurance.name }}</h3>
-							<p>
-								{{ insurance.description }}
+							<p v-html="insurance.description">
 							</p>
 							<div v-for="prop in Object.entries(insurance.properties)" v-bind:key="prop[0]" class="cardside-content-info">
 								<div class="car-property" v-if="prop[1]">

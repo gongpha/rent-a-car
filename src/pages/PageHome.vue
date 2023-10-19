@@ -91,7 +91,7 @@ function submit() {
 							</p>
 						</div>
 					</CardContainer>
-					<CardContainer>
+					<!--CardContainer>
 						<h1>ตรวจสอบการจอง</h1>
 						<div class="form-card-body">
 							<div class="form-input-text">
@@ -106,7 +106,7 @@ function submit() {
 								ตรวจสอบ
 							</button>
 						</div>
-					</CardContainer>
+					</CardContainer-->
 				</div>
 			</ContentCenter>
 		</div>

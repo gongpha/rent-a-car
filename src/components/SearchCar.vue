@@ -97,7 +97,7 @@ export default defineComponent({
 					this.branchStartID = this.options.find((option) => option.id == this.startBranchStartID);
 					this.branchEndID = this.options.find((option) => option.id == this.startBranchEndID);
 					if (!(this.endDate == undefined || this.startDate == undefined)) {
-						this.startEndDate = [this.endDate, this.startDate]
+						this.startEndDate = [this.startDate, this.endDate]
 					}
 					
 					this.diffPlace = this.branchStartID != this.branchEndID

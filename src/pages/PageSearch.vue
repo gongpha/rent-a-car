@@ -5,6 +5,8 @@ import ContentCenter from '../components/ContentCenter.vue'
 import SearchCar from '../components/SearchCar.vue'
 import VueMultiselect from 'vue-multiselect'
 
+import PriceLabel from '@/components/PriceLabel.vue';
+
 // @ts-ignore
 import HistogramSlider from "vue3-histogram-slider";
 import "vue3-histogram-slider/dist/histogram-slider.css";
@@ -313,7 +315,7 @@ function reserve(carId : number) {
 						<img :src="car.car_image" class="card-img-thumb-mid">
 						<div class="cardside-content">
 							<h3 class="force-black">{{ car.brand }} {{ car.model }} {{ car.year }}</h3>
-							<h2><span class="price-prefix">฿</span><span class="price-number">{{ car.price_per_day.toLocaleString() }}</span></h2>
+							<PriceLabel suffix=" / วัน">{{ car.price_per_day }}</PriceLabel>
 							<div class="cardside-content-info">
 								<div class="car-property-row">
 									<div class="car-property">

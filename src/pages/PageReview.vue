@@ -106,6 +106,10 @@ const resv : Ref<ReservationInfo> = ref({
 })
 
 onMounted(() => {
+	pull()
+})
+
+function pull() {
 	const sum = axios.get(apiURL + '/reserve/summary', {
 		params : {
 			branchStartID: route.query.branchStartID,
@@ -114,6 +118,8 @@ onMounted(() => {
 			endDate: route.query.endDate,
 
 			carId: route.query.carId,
+
+			discountCode: (discountCode.value != "") ? discountCode.value : undefined,
 
 			insuranceId: route.query.insuranceId,
 		}
@@ -153,7 +159,7 @@ onMounted(() => {
 			total : values[0].data.total,
 		}
 	});
-})
+}
 const $cookies = inject<VueCookies>('$cookies')
 function submit() {
 	if (!cardholder.value) {
@@ -213,6 +219,10 @@ function submit() {
 
 				/* */
 
+				discountCode: discountCode.value,
+
+				/* */
+
 				cardholder: cardholder.value,
 				cardNumber: cardNumber.value,
 				cardExpiryMonth: cardExpiryMonth.value!.value,
@@ -240,6 +250,10 @@ function submit() {
         }, 2000)
 	return
 }
+
+//
+
+const discountCode = ref('')
 
 //
 
@@ -524,15 +538,18 @@ const $loading = useLoading({
 					</div>
 				</div>
 			</CardContainer>
-			<!--h1>ข้อมูลส่วนตัว</h1>
+			<h1>ใช้ส่วนลด</h1>
 			<CardContainer class="car-card cardside" v-if="resv">
-				<div style="margin-left: auto; margin-right: auto;">
-					<div class="profilebutton-info-header">
-						<img class="pfp-big" :src="cust.picture" alt="profile picture">
-						<h1>{{ cust.firstName }} {{ cust.lastName }}</h1>
+				<div class="form-card-body">
+					<div class="form-input-text">
+						<span class="form-label">รหัสส่วนลด</span>
+						<input type="text" v-model="discountCode" ref="discountCodeField" />
 					</div>
+					<button class="button" @click="pull">
+						ใช้งาน
+					</button>
 				</div>
-			</CardContainer-->
+			</CardContainer>
 			<h1>ข้อมูลการชำระเงิน</h1>
 			<CardContainer class="car-card cardside" v-if="resv">
 				<div class="form-card-body">
